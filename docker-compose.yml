@@ -1,23 +1,23 @@
 web:
   image: nginx:latest
-  container_name: web_server
+  container_name: web
   ports:
       - "80:80"
   volumes:
       - ./src:/src
       - ./docker/config/site.conf:/etc/nginx/conf.d/site.conf
   links:
-    - app
+    - php
     
-app:
+php:
   build: .
-  container_name: app
+  container_name: php
   volumes:
     - ./src:/src
   links:
-    - db
+    - mysql
 
-db:
+mysql:
   image: mysql:latest
   container_name: mysql
   environment:
