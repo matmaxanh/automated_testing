@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Entities\Repositories\Eloquent;
 
 use App\Entities\Models\Post;
@@ -25,8 +26,16 @@ class PostRepository implements PostRepositoryInterface
     /**
      * @inheritdoc
      */
-    public function findAll()
+    public function search($searchQuery = '', $itemPerPage = 50, $currentPage = 1, $count = false)
     {
-        return $this->model->all();
+        $offset = ($currentPage - 1) * $itemPerPage;
+
+        $query = $this->model->where('title', 'like', "%$searchQuery%");
+
+        if ($count) {
+            return $query->count();
+        }
+
+        return $query->offset($offset)->limit($itemPerPage)->get();
     }
 }

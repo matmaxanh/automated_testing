@@ -228,4 +228,8 @@ return [
 
     ],
 
+    'pagination' => [
+        'item_per_page' => 20
+    ]
+
 ];

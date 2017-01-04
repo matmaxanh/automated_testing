@@ -1,15 +1,22 @@
 <?php
 
+
 namespace App\Entities\Repositories;
+
 
 use App\Entities\Models\Post;
 
 interface PostRepositoryInterface
 {
     /**
-     * Return all posts
+     * Search posts
+     *
+     * @param string $searchQuery
+     * @param int $itemPerPage
+     * @param int $currentPage
+     * @param bool $count
      *
      * @return Post[]
      */
-    public function findAll();
+    public function search($searchQuery = '', $itemPerPage = 50, $currentPage = 1, $count = false);
 }
