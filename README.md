@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/truongnguyen1912/automated_testing.svg?branch=master)](https://travis-ci.org/truongnguyen1912/automated_testing)
+
 # PHP Automated testing
 
 ## General
