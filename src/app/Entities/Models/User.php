@@ -5,6 +5,17 @@ namespace App\Entities\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ *
+ * @package App\Entities\Models
+ *
+ * @property string $first_name
+ * @property string $last_name
+ * @property boolean $gender
+ * @property string $email
+ * @property string $password
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,6 +38,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Return user title, first name and last name combined
+     *
+     * @return string
+     */
     public function displayName()
     {
         $title = $this->getTitle();
@@ -34,6 +50,11 @@ class User extends Authenticatable
         return $title . ' ' . $this->first_name . ' ' . $this->last_name;
     }
 
+    /**
+     * Return user title
+     *
+     * @return string
+     */
     private function getTitle()
     {
         $title = 'Mr.';
