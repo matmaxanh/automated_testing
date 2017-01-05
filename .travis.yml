@@ -1,6 +1,6 @@
 language: php
 php:
  - '7.0'
- before_install: cd src/
+ before_install: cd src
 install: composer install
 script: vendor/bin/codecept run
