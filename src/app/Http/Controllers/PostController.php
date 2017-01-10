@@ -10,7 +10,7 @@ use App\Entities\Models\Post;
 use App\Entities\Repositories\PostRepositoryInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {

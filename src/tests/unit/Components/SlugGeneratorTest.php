@@ -56,12 +56,6 @@ class SlugGeneratorTest extends TestCase
                 'this-is-a-2-test-post-1484067685'
             ],
 
-            'string_with_transliteration' => [
-                new Post(['title' => 'Weiß, Goldmann, Göbel, Weiss, Göthe, Goethe und Götz']),
-                Carbon::createFromTimestamp(1484066534),
-                'weiss-goldmann-gbel-weiss-gthe-goethe-und-gtz-1484066534'
-            ],
-
             'unwanted_characters' => [
                 new Post(['title' => 'This is a test post']),
                 Carbon::createFromTimestamp(1484063204),
