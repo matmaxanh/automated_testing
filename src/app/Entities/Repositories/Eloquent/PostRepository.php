@@ -36,6 +36,20 @@ class PostRepository implements PostRepositoryInterface
             return $query->count();
         }
 
-        return $query->offset($offset)->limit($itemPerPage)->get();
+        return $query
+            ->orderBy('id', 'desc')
+            ->offset($offset)
+            ->limit($itemPerPage)
+            ->get();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function save(Post $post)
+    {
+        $post->save();
+
+        return $this;
     }
 }

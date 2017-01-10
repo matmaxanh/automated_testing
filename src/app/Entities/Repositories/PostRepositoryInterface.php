@@ -19,4 +19,13 @@ interface PostRepositoryInterface
      * @return Post[]
      */
     public function search($searchQuery = '', $itemPerPage = 50, $currentPage = 1, $count = false);
+
+    /**
+     * Save a post
+     *
+     * @param Post $post
+     *
+     * @return self
+     */
+    public function save(Post $post);
 }

@@ -5,6 +5,8 @@
         <div class="col-md-12">
             <h1>Posts</h1>
 
+            @include('partials._flash')
+
             <form class="form-inline" method="get">
                 <div class="form-group">
                     <label for="search-query">Search post</label>
@@ -12,7 +14,7 @@
                 </div>
 
                 <div class="form-group pull-right">
-                    <button class="btn btn-primary">New post</button>
+                    <a href="{{ route('post_create') }}" class="btn btn-primary">New post</a>
                 </div>
             </form>
 
@@ -46,15 +48,15 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="{{ $paginator->isFirstPage() ? 'disabled' : '' }}">
-                            <a href="{{ url("/?page=" . $paginator->previousPage()) }}" aria-label="Previous">
+                            <a href="{{ route('post_list', ['page' => $paginator->previousPage()]) }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         @for($i = 0; $i < $paginator->totalPages(); $i++)
-                            <li class="{{ $paginator->isCurrentPage($i + 1) ? 'active' : '' }}"><a href="{{ url("/?page=" . ($i + 1)) }}">{{ $i + 1 }}</a></li>
+                            <li class="{{ $paginator->isCurrentPage($i + 1) ? 'active' : '' }}"><a href="{{ route('post_list', ['page' => ($i + 1)]) }}">{{ $i + 1 }}</a></li>
                         @endfor
                         <li class="{{ $paginator->isLastPage() ? 'disabled' : '' }}">
-                            <a href="{{ url("/?page=" . $paginator->nextPage()) }}" aria-label="Next">
+                            <a href="{{ route('post_list', ['page' => $paginator->nextPage()]) }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
