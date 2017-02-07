@@ -25,7 +25,7 @@ interface PostRepositoryInterface
      *
      * @param Post $post
      *
-     * @return self
+     * @return boolean
      */
     public function save(Post $post);
 }

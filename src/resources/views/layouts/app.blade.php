@@ -12,7 +12,7 @@
 
         <link href="/css/app.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
+    <body style="background-color: white;">
         <div class="content">
             @yield('content')
         </div>

@@ -48,8 +48,6 @@ class PostRepository implements PostRepositoryInterface
      */
     public function save(Post $post)
     {
-        $post->save();
-
-        return $this;
+        return $post->save();
     }
 }

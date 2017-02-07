@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 
 
 use App\Components\Paginator;
-use App\Components\SlugGenerator;
-use App\Entities\Models\Post;
 use App\Entities\Repositories\PostRepositoryInterface;
+use App\Services\PostService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -20,19 +19,22 @@ class PostController extends Controller
     private $postRepository;
 
     /**
-     * @var SlugGenerator
+     * @var PostService
      */
-    private $slugGenerator;
+    private $postService;
 
     /**
      * HomeController constructor.
      *
      * @param PostRepositoryInterface $postRepository
+     * @param PostService $postService
      */
-    public function __construct(PostRepositoryInterface $postRepository, SlugGenerator $slugGenerator)
-    {
+    public function __construct(
+        PostRepositoryInterface $postRepository,
+        PostService $postService
+    ) {
         $this->postRepository = $postRepository;
-        $this->slugGenerator = $slugGenerator;
+        $this->postService = $postService;
     }
 
     /**
@@ -74,16 +76,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       $post = new Post($request->all());
-       $post->slug = $this->slugGenerator->generate($post);
-       $post->author = 1;
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ]);
 
-       if (!$this->postRepository->save($post)) {
-            $request->session()->flash('error', 'Could not save the post');
-            return redirect()->route('post_create')->withInput();
+       if ($this->postService->save($request->all())) {
+           $request->session()->flash('success', 'Post saved');
+           return redirect()->route('post_list');
        }
 
-        $request->session()->flash('success', 'Post saved');
-       return redirect()->route('post_list');
+        $request->session()->flash('error', 'Could not save the post');
+        return redirect()->route('post_create')->withInput();
     }
 }
