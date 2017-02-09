@@ -4,9 +4,9 @@
 namespace App\tests;
 
 
-use PHPUnit_Framework_TestCase;
+use Codeception\Test\Unit;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends Unit
 {
 
 }

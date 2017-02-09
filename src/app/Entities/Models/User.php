@@ -15,6 +15,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property boolean $gender
  * @property string $email
  * @property string $password
+ *
+ * @property Post[] $posts
  */
 class User extends Authenticatable
 {
@@ -26,7 +28,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'id',
+        'first_name',
+        'last_name',
+        'email',
+        'gender',
+        'password'
     ];
 
     /**
@@ -37,6 +44,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Setup relationship with User model
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'author', 'id');
+    }
 
     /**
      * Return user title, first name and last name combined
