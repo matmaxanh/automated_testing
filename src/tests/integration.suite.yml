@@ -8,7 +8,6 @@ modules:
         - Asserts
         - Laravel5:
             part: ORM
-            environment_file: .env.testing
             run_database_migrations: true
         - \Helper\Integration
         - App\tests\_support\FixtureHelper
