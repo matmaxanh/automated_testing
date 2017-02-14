@@ -7,14 +7,14 @@
 
             @include('partials._flash')
 
-            <form class="form-inline" method="get">
+            <form class="form-inline search-form" method="get">
                 <div class="form-group">
-                    <label for="search-query">Search post</label>
-                    <input name="search-query" value="{{ request('search-query') }}" type="text" class="form-control" id="search-query" placeholder="Post title...">
+                    <label for="search-query">Search posts</label>
+                    <input name="search-query" value="{{ request('search-query') }}" type="text" class="form-control search-query" id="search-query" placeholder="Post title...">
                 </div>
 
                 <div class="form-group pull-right">
-                    <a href="{{ route('post_create') }}" class="btn btn-primary">New post</a>
+                    <a href="{{ route('post_create') }}" class="btn btn-primary new-post">New post</a>
                 </div>
             </form>
 
@@ -22,7 +22,7 @@
 
             <p>There was total {{ $paginator->total() }} posts on {{ $paginator->totalPages() }} pages</p>
 
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped posts">
                 <thead>
                     <tr>
                         <th>ID</th>
