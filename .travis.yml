@@ -6,6 +6,7 @@ services:
 before_install:
  - cd src
  - mysql -e 'CREATE DATABASE laravel_test;'
+ - php artisan migrate
 install: composer install
 script: vendor/bin/codecept run
 env:
