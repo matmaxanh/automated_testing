@@ -5,10 +5,8 @@ services:
  - mysql
 before_install:
  - cd src
+ - cp .env.ci .env.testing
  - mysql -e 'CREATE DATABASE laravel_test;'
 install:
  - composer install
- - php artisan migrate --force
 script: vendor/bin/codecept run
-env:
- - DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=laravel_test DB_USERNAME=root DB_PASSWORD=
