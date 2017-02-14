@@ -32,8 +32,8 @@ class PostTest extends TestCase
         $user = $this->post->authorUser;
 
         $this->assertEquals(1, $user->id);
-        $this->assertEquals('First name 1', $user->first_name);
-        $this->assertEquals('Last name 1', $user->last_name);
+        $this->assertEquals('William', $user->first_name);
+        $this->assertEquals('Bill Gates', $user->last_name);
         $this->assertEquals(true, $user->gender);
     }
 }

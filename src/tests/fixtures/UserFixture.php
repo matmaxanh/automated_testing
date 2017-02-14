@@ -18,20 +18,20 @@ class UserFixture extends AbstractFixture
         return [
             'user-1' => [
                 'id' => 1,
-                'first_name' => 'First name 1',
-                'last_name' => 'Last name 1',
+                'first_name' => 'William',
+                'last_name' => 'Bill Gates',
                 'gender' => true,
-                'email' => 'user1@example.com',
-                'password' => 'password-1'
+                'email' => 'gate@microsoft.com',
+                'password' => 'verycomplexpassword'
             ],
 
             'user-2' => [
                 'id' => 2,
-                'first_name' => 'First name 2',
-                'last_name' => 'Last name 2',
+                'first_name' => 'Sheryl',
+                'last_name' => 'Sandberg',
                 'gender' => false,
-                'email' => 'user2@example.com',
-                'password' => 'password-2'
+                'email' => 'sheryl@facebook.com',
+                'password' => 'verysimplepassword'
             ]
         ];
     }
