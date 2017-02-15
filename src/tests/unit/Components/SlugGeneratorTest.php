@@ -72,6 +72,12 @@ class SlugGeneratorTest extends TestCase
                 new Post(['title' => 'This--is a test--post']),
                 Carbon::createFromTimestamp(1484063204),
                 'this-is-a-test-post-1484063204'
+            ],
+
+            'empty_string' => [
+                new Post(['title' => '']),
+                Carbon::createFromTimestamp(1484063334),
+                'n-a'
             ]
         ];
     }
