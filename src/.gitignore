@@ -5,8 +5,6 @@
 /.idea
 Homestead.json
 Homestead.yaml
-.env
-.env.testing
 
 tests/_output/*
 tests/_support/_generated

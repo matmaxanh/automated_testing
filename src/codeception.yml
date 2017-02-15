@@ -22,6 +22,7 @@ modules:
 coverage:
     enabled: true
     include:
-        - app/Entities/*
+        - app/Http/Controllers/PostController.php
+        - app/Components/*
         - app/Services/*
-        - app/Http/*
+        - app/Entities/*
