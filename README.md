@@ -40,3 +40,4 @@ vendor/bin/codecept run --coverage --coverage-html
 ```
 ## Reference
 * [http://codeception.com](http://codeception.com)
+* [Another sample project](https://github.com/janhenkgerritsen/codeception-laravel5-sample)
