@@ -12,7 +12,7 @@ Docker should be installed.
 For more information: [click here](http://docker.com)
 
 * `docker-compose up`
-* `winpty docker exec -ti php bash`
+* `docker exec -ti php bash`
 * `php artisan migrate:refresh --seed`
 
 Update your host file and create an entry:
@@ -23,12 +23,12 @@ You can now access the app by visiting: [http://automated_testing.dev](http://au
 ## Run tests
 Create test DB:
 ```
-winpty docker exec -ti mysql bash
+docker exec -ti mysql bash
 mysql -uroot -proot -e 'CREATE DATABASE laravel_test;'
 ```
 Test command:
 ```
-winpty docker exec -ti php bash
+docker exec -ti php bash
 ```
 
 ```
