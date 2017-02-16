@@ -74,12 +74,6 @@ class User extends Authenticatable
      */
     private function getTitle()
     {
-        $title = 'Mr.';
-
-        if ($this->gender === 0) {
-            $title = 'Mrs.';
-        }
-
-        return $title;
+        return $this->gender ? 'Mr.' : 'Mrs.';
     }
 }
